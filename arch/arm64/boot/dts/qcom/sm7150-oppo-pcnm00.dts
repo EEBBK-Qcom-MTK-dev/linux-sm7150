@@ -670,6 +670,9 @@
 		vdd-supply = <&vreg_l7c_3p0>;
 		vio-supply = <&vreg_l12a_1p8>;
 		
+		touchscreen-size-x = <1080>;
+		touchscreen-size-y = <2340>;
+		
 		/* Pin Control */
 		pinctrl-names = "default";
 		pinctrl-0 = <&ts_int_active &ts_reset_active>;
