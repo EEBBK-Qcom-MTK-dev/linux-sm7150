@@ -167,6 +167,22 @@
 		vin-supply = <&vph_pwr>;
 	};
 
+	vreg_ibb: regulator-ibb {
+		compatible = "regulator-fixed";
+
+		regulator-name = "ibb";
+		regulator-min-microvolt = <6000000>;
+		regulator-max-microvolt = <6000000>;
+	};
+
+	vreg_lab: regulator-lab {
+		compatible = "regulator-fixed";
+
+		regulator-name = "lab";
+		regulator-min-microvolt = <6100000>;
+		regulator-max-microvolt = <6100000>;
+	};
+
 	sound {
 		compatible = "qcom,sm8250-sndcard";
 		pinctrl-0 = <&pri_mi2s_active &pri_mi2s_ws_active>;
@@ -743,6 +759,11 @@
 		reg = <0>;
 
 		reset-gpios = <&pm6150l_gpios 9 GPIO_ACTIVE_LOW>;
+
+		vddio-supply = <&vreg_l13a_1p8>;
+		vdd3p3-supply = <&vreg_l7c_3p0>;
+		vsn-supply = <&vreg_ibb>;
+		vsp-supply = <&vreg_lab>;
 		
 		pinctrl-0 = <&panel_reset_n &mdp_vsync_p>;
 		pinctrl-names = "default";
