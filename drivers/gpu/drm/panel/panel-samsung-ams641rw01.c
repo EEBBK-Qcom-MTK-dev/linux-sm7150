@@ -16,8 +16,6 @@
 #include <drm/drm_panel.h>
 #include <drm/drm_probe_helper.h>
 
-#define SAMSUNG_AMS641RW01_DOPCTR_0_DSIM BIT(4) /* Enable video mode on DSI */
-
 struct samsung_ams641rw01 {
 	struct drm_panel panel;
 	struct mipi_dsi_device *dsi;
@@ -254,8 +252,8 @@ static int samsung_ams641rw01_probe(struct mipi_dsi_device *dsi)
 
 	dsi->lanes = 4;
 	dsi->format = MIPI_DSI_FMT_RGB888;
-	dsi->mode_flags = MIPI_DSI_MODE_VIDEO | MIPI_DSI_MODE_VIDEO_BURST |
-			  MIPI_DSI_MODE_VIDEO_HSE | MIPI_DSI_MODE_NO_EOT_PACKET |
+	dsi->mode_flags = MIPI_DSI_MODE_VIDEO_BURST | MIPI_DSI_MODE_VIDEO_HSE |
+			  MIPI_DSI_MODE_NO_EOT_PACKET |
 			  MIPI_DSI_CLOCK_NON_CONTINUOUS;
 
 	ctx->panel.prepare_prev_first = true;
@@ -305,5 +303,5 @@ static struct mipi_dsi_driver samsung_ams641rw01_driver = {
 module_mipi_dsi_driver(samsung_ams641rw01_driver);
 
 MODULE_AUTHOR("XiKoTaSu <3329989998@qq.com>");
-MODULE_DESCRIPTION("DRM driver for samsung ams641rw01 video mode dsi panel");
+MODULE_DESCRIPTION("DRM driver for samsung ams641rw01 cmd mode dsi panel");
 MODULE_LICENSE("GPL");
