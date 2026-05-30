@@ -752,10 +752,10 @@
 
 &mdss_dsi0 {
 	vdda-supply = <&vdda_mipi_dsi0_1p2>;
-	status = "okay";
 
 	panel@0 {
 		compatible = "samsung,oppo-18097-ams641rw01";
+	        status = "disabled";
 		reg = <0>;
 
 		reset-gpios = <&pm6150l_gpios 9 GPIO_ACTIVE_LOW>;
