@@ -702,7 +702,7 @@
 
 	panel@0 {
 		compatible = "samsung,ams641rw01";
-	        status = "okay";
+	        status = "disabled";
 		reg = <0>;
 
 		reset-gpios = <&pm6150l_gpios 9 GPIO_ACTIVE_LOW>;
