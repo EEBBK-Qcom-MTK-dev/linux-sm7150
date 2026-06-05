@@ -860,12 +860,12 @@
 
 &remoteproc_adsp {
 	firmware-name = "qcom/sm7150/oppo/pcnm00/adsp.mbn";
-	status = "okay";
+	status = "disabled";
 };
 
 &remoteproc_cdsp {
 	firmware-name = "qcom/sm7150/oppo/pcnm00/cdsp.mbn";
-	status = "okay";
+	status = "disabled";
 };
 
 &remoteproc_mpss {
