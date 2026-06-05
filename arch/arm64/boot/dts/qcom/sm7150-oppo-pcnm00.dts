@@ -686,7 +686,7 @@
 	vdda-supply = <&vdda_mipi_dsi0_1p2>;
 
 	panel@0 {
-		compatible = "samsung,oppo-18097-ams641rw01";
+		compatible = "samsung,ams641rw01";
 	        status = "okay";
 		reg = <0>;
 
