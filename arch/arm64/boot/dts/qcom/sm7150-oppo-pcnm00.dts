@@ -142,6 +142,11 @@
 			qcom,client-id = <1>;
 			qcom,vmid = <QCOM_SCM_VMID_MSS_MSA>;
 		};
+
+		ramdump_fb_mem: ramdump_fb_region@af000000 {
+			reg = <0x0 0xaf000000 0x0 0x1000000>;
+			no-map;
+		};
 	};
 
 	vph_pwr: regulator-vph-pwr {
