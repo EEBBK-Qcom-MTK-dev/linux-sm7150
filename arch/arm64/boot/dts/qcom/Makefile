@@ -301,6 +301,7 @@ dtb-$(CONFIG_ARCH_QCOM)	+= sm6375-sony-xperia-murray-pdx225.dtb
 dtb-$(CONFIG_ARCH_QCOM)	+= sm7125-xiaomi-curtana.dtb
 dtb-$(CONFIG_ARCH_QCOM)	+= sm7125-xiaomi-joyeuse.dtb
 dtb-$(CONFIG_ARCH_QCOM)	+= sm7150-oppo-pcnm00.dtb
+dtb-$(CONFIG_ARCH_QCOM)	+= sm7150-oppo-pcnm00-wip.dtb
 dtb-$(CONFIG_ARCH_QCOM)	+= sm7150-google-sunfish.dtb
 dtb-$(CONFIG_ARCH_QCOM)	+= sm7150-xiaomi-davinci-samsung.dtb
 dtb-$(CONFIG_ARCH_QCOM)	+= sm7150-xiaomi-davinci-visionox.dtb
