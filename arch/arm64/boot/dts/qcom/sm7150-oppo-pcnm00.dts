@@ -17,10 +17,6 @@
 #include "pm6150.dtsi"
 #include "pm6150l.dtsi"
 
-/delete-node/ &mpss_mem;
-/delete-node/ &venus_mem;
-/delete-node/ &cdsp_mem;
-/delete-node/ &adsp_mem;
 /delete-node/ &wlan_msa_mem;
 /delete-node/ &npu_mem;
 /delete-node/ &ipa_fw_mem;
@@ -75,7 +71,7 @@
 	};
 
     reserved-memory {
-		mpss_mem: memory@ab000000 {
+/*		mpss_mem: memory@ab000000 {
 			reg = <0x0 0xab000000 0x0 0x8e00000>;
 			no-map;
 		};
@@ -94,7 +90,7 @@
 			reg = <0x00 0xe1b00000 0x00 0x2000000>;
 			no-map;
 		};
-
+*/
 		wlan_msa_mem: wlan_msa@97d00000 {
 			reg = <0x0 0x97d00000 0x0 0x180000>;
 			no-map;
