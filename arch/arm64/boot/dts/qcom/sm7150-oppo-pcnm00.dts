@@ -71,26 +71,6 @@
 	};
 
     reserved-memory {
-/*		mpss_mem: memory@ab000000 {
-			reg = <0x0 0xab000000 0x0 0x8e00000>;
-			no-map;
-		};
-
-		venus_mem: memory@aab00000 {
-			reg = <0x0 0xaab00000 0x0 0x500000>;
-			no-map;
-		};
-
-		cdsp_mem: memory@b4300000 {
-			reg = <0x0 0xb4300000 0x0 0x1e00000>;
-			no-map;
-		};
-
-		adsp_mem: memory@e1b00000 {
-			reg = <0x00 0xe1b00000 0x00 0x2000000>;
-			no-map;
-		};
-*/
 		wlan_msa_mem: wlan_msa@97d00000 {
 			reg = <0x0 0x97d00000 0x0 0x180000>;
 			no-map;
@@ -597,7 +577,7 @@
 };
 
 &dispcc {
-	status = "disabled";
+	status = "okay";
 };
 
 &gpi_dma0 {
