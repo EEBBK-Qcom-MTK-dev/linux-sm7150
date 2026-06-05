@@ -80,47 +80,32 @@
 			no-map;
 		};
 
-		venus_mem: memory@aab00000 {
-			reg = <0x0 0xaab00000 0x0 0x500000>;
+		wlan_msa_mem: wlan_msa@97d00000 {
+			reg = <0x0 0x97d00000 0x0 0x180000>;
 			no-map;
 		};
 
-		cdsp_mem: memory@b4300000 {
-			reg = <0x0 0xb4300000 0x0 0x1e00000>;
+		npu_mem: npu@97e80000 {
+			reg = <0x0 0x97e80000 0x0 0x80000>;
 			no-map;
 		};
 
-		adsp_mem: memory@e1b00000 {
-			reg = <0x00 0xe1b00000 0x00 0x2000000>;
+		ipa_fw_mem: ipa_fw@97f00000 {
+			reg = <0x0 0x97f00000 0x0 0x10000>;
 			no-map;
 		};
 
-		wlan_msa_mem: memory@b8100000 {
-			reg = <0x0 0xb8100000 0x0 0x180000>;
+		ipa_gsi_mem: ipa_gsi@97f10000 {
+			reg = <0x0 0x97f10000 0x0 0x5000>;
 			no-map;
 		};
 
-		npu_mem: memory@b7080000 {
-			reg = <0x0 0xb7080000 0x0 0x80000>;
+		gpu_mem: gpu@97f15000 {
+			reg = <0x0 0x97f15000 0x0 0x2000>;
 			no-map;
 		};
 
-		ipa_fw_mem: memory@b7100000 {
-			reg = <0x0 0xb7100000 0x0 0x10000>;
-			no-map;
-		};
-
-		ipa_gsi_mem: memory@b7110000 {
-			reg = <0x0 0xb7110000 0x0 0x5000>;
-			no-map;
-		};
-
-		gpu_mem: memory@b8315000 {
-			reg = <0x0 0xb8315000 0x0 0x2000>;
-			no-map;
-		};
-
-		cont_splash_mem: cont-splash@9c000000 {
+		cont_splash_mem: splash_region@9c000000 {
 			reg = <0x0 0x9c000000 0x0 0x1700000>;
 			no-map;
 		};
@@ -132,7 +117,6 @@
 			console-size = <0x40000>;
 			ftrace-size = <0x40000>;
 			pmsg-size = <0x200000>;
-			devinfo-size = <0x1000>;
 		};
 
 		rmtfs_mem: rmtfs@fde01000 {
@@ -614,58 +598,6 @@
 	};
 };
 
-/*&i2c1 {
-	status = "okay";
-
-	synaptics7150@20 {
-		compatible = "synaptics-s3706";
-		reg = <0x20>;
-		chip-name = "S3706";
-
-		/* Interrupt && Irq-gpio */
-/*		interrupt-parent = <&tlmm>;
-		interrupts = <9 0x00>;
-
-		/* Power Config */
-/*		vdd_2v8-supply = <&vreg_l7c_3p0>;
-		vcc_1v8-supply = <&vreg_l12a_1p8>;
-
-		/* Other HW Resource */
-/*		irq-gpio = <&tlmm 9 0x2008>;
-		reset-gpio = <&tlmm 8 0x1>;
-		pinctrl-names = "default";
-		pinctrl-0 = <&ts_int_active &ts_reset_active>;
-
-		touchpanel,max-num-support = <10>;
-		touchpanel,tx-rx-num = <16 33>;
-		touchpanel,panel-coords = <1080 2340>;
-		touchpanel,display-coords = <1080 2340>;
-		touchpanel,touchmajor-limit = <0 54>;
-
-		tp_type = <8>;// type of tp_dev ,TP-SAMSUNG = 8;
-		platform_support_project = <19111>;
-		platform_support_project_dir = <19111>;
-		platform_support_project_commandline = "default_commandline";
-
-		/* SW Support Feature Control */
-/*		black_gesture_support;
-		fw_edge_limit_support;
-		fw_corner_limit_support;
-		charger_pump_support;
-		game_switch_support;
-		face_detect_support;
-		smart_gesture_support;
-		pressure_report_support;
-		fw_update_app_support;
-		fingerprint_underscreen_support;
-		report_120hz_support;
-		report_point_first_support;
-
-		touchpanel,button-type = <4>;
-		touchpanel.button-TRx = <0 0>;
-	};
-};*/
-
 &i2c1 {
 	status = "okay";
 	#address-cells = <1>;
@@ -755,7 +687,7 @@
 
 	panel@0 {
 		compatible = "samsung,oppo-18097-ams641rw01";
-	        status = "disabled";
+	        status = "okay";
 		reg = <0>;
 
 		reset-gpios = <&pm6150l_gpios 9 GPIO_ACTIVE_LOW>;
