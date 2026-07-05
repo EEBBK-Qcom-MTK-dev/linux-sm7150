@@ -311,7 +311,7 @@ static void samsung_ams641rw01_remove(struct mipi_dsi_device *dsi)
 }
 
 static const struct of_device_id samsung_ams641rw01_of_match[] = {
-	{ .compatible = "mdss,samsung-ams641rw01" }, // FIXME
+	{ .compatible = "samsung,ams641rw01" },
 	{ /* sentinel */ }
 };
 MODULE_DEVICE_TABLE(of, samsung_ams641rw01_of_match);
