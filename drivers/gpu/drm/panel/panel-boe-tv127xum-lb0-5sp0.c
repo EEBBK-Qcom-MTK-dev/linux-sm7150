@@ -9,6 +9,7 @@
 #include <linux/module.h>
 #include <linux/of_graph.h>
 #include <linux/regulator/consumer.h>
+#include <linux/of.h>
 
 #include <drm/drm_mipi_dsi.h>
 #include <drm/drm_modes.h>
@@ -127,7 +128,7 @@ static const struct drm_display_mode boe_tv127xum_lb0_5sp0_mode = {
 	.vsync_start = 2176 + 255,
 	.vsync_end = 2176 + 255 + 6,
 	.vtotal = 2176 + 255 + 6 + 34,
-	.width_mm = 294,	/* 物理宽度也应翻倍？通常不变，但若面板实际宽度对应1600则需调整，此处按比例假设 */
+	.width_mm = 147,	/* 物理宽度也应翻倍？通常不变，但若面板实际宽度对应1600则需调整，此处按比例假设 */
 	.height_mm = 197,
 	.type = DRM_MODE_TYPE_DRIVER,
 };
@@ -173,7 +174,7 @@ static int boe_tv127xum_lb0_5sp0_probe(struct mipi_dsi_device *dsi)
 	/* 获取第二个 DSI 端口 */
 	dsi_sec = of_graph_get_remote_node(dsi->dev.of_node, 1, -1);
 	if (dsi_sec) {
-		const struct mipi_dsi_device_info info = { "BOE TV127XUM LB0 5SP0 DSI1", 0,
+		const struct mipi_dsi_device_info info = { "BOE-DSI1", 0,
 							   dsi_sec };
 
 		dsi_sec_host = of_find_mipi_dsi_host_by_node(dsi_sec);

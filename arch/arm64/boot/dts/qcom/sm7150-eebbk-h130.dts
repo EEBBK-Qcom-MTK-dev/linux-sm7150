@@ -76,7 +76,7 @@
 		};
 	};
 
-    reserved-memory {;
+    reserved-memory {
 
         mpss_mem: memory@8b000000 {
             reg = <0x00 0x8b000000 0x00 0x3400000>;
@@ -167,6 +167,7 @@
 		regulator-always-on;
 		vin-supply = <&vph_pwr>;
 	};
+	
 	sound {
 		compatible = "qcom,sm8250-sndcard";
 		pinctrl-0 = <&pri_mi2s_active &pri_mi2s_ws_active>;
@@ -191,7 +192,7 @@
 			};
 
 			codec {
-				sound-dai = <&audio_left>
+				sound-dai = <&audio_left>,
 				        <&audio_right>;
 			};
 		};
@@ -594,7 +595,7 @@
 	status = "okay";
 
 	panel: panel@0 {
-		compatible = "boe,tv127xum-lb0-5sp0"
+		compatible = "boe,tv127xum-lb0-5sp0",
 		        "eebbk,boe-tv127xum-lb0-5sp0";
 		reg = <0>;
 
