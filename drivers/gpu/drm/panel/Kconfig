@@ -105,6 +105,16 @@ config DRM_PANEL_BOE_TV101WUM_LL2
 	  Say Y here if you want to support for BOE TV101WUM-LL2
 	  WUXGA PANEL DSI Video Mode panel
 
+config DRM_PANEL_BOE_TV127XUM_LB0_5SP0
+	tristate "BOE TV127XUM-LB0-5SP0 2176x1600 panel"
+	depends on OF
+	depends on DRM_MIPI_DSI
+	depends on BACKLIGHT_CLASS_DEVICE
+	select VIDEOMODE_HELPERS
+	help
+	  Say Y or M here if you want to enable support for the BOE TV127XUM-LB0-5SP0
+	  (2176x1600@60Hz) video mode panel.
+
 config DRM_PANEL_CHIPWEALTH_CH13726A
 	tristate "CHIPWEALTH CH13726A-based DSI panel"
 	depends on OF
