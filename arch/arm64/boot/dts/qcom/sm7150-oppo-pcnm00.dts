@@ -28,7 +28,7 @@
 	compatible = "oppo,pcnm00", "qcom,sm7150";
 	chassis-type = "handset";
 
-	board-id = <0x22 0x00>;
+	qcom,board-id = <0x22 0x00>;
 
 	aliases {
 		bluetooth0 = &bluetooth;
