@@ -217,20 +217,6 @@
 		function = LED_FUNCTION_STATUS;
 		function-enumerator = <0>;
 	};
-
-	led@2 {
-		reg = <2>;
-		color = <LED_COLOR_ID_RED>;
-		function = LED_FUNCTION_STATUS;
-		function-enumerator = <1>;
-	};
-
-	led@3 {
-		reg = <3>;
-		color = <LED_COLOR_ID_RED>;
-		function = LED_FUNCTION_STATUS;
-		function-enumerator = <2>;
-	};
 };
 
 &apps_rsc {
