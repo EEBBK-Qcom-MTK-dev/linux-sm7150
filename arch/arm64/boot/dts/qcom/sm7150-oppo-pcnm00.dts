@@ -642,7 +642,7 @@
 
 		#sound-dai-cells = <0>;
 	};
-};/*
+};*/
 
 &ipa {
 	memory-region = <&ipa_fw_mem>;
