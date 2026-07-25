@@ -46,7 +46,7 @@
 
 		framebuffer@9c000000 {
 			compatible = "simple-framebuffer";
-			reg = <0x0 0x9c000000 0x0 0x1700000>;
+			reg = <0x0 0x9c000000 0x0 (1080 * 2340 * 4)>;
 			width = <1080>;
 			height = <2340>;
 			stride = <(1080 * 4)>;
@@ -99,7 +99,7 @@
 		};
 
 		cont_splash_mem: splash_region@9c000000 {
-			reg = <0x0 0x9c000000 0x0 0x1700000>;
+			reg = <0x0 0x9c000000 0x0 (1080 * 2340 * 4)>;
 			no-map;
 		};
 
@@ -165,7 +165,7 @@
 		regulator-max-microvolt = <6100000>;
 	};
 
-	sound {
+	/*sound {
 		compatible = "qcom,sm8250-sndcard";
 		pinctrl-0 = <&pri_mi2s_active &pri_mi2s_ws_active>;
 		pinctrl-names = "default";
@@ -192,7 +192,7 @@
 				sound-dai = <&tfa9874>;
 			};
 		};
-	};
+	};*/
 };
 
 &q6afedai {
@@ -582,63 +582,51 @@
 	};
 };
 
-&i2c1 {
+/*&i2c1 {
 	status = "okay";
 	#address-cells = <1>;
-    #size-cells = <0>;
+        #size-cells = <0>;
 
 	touchscreen@20 {
 		compatible = "syna,rmi4-i2c";
 		reg = <0x20>;
 		
-		/* Interrupt Configuration */
 		interrupt-parent = <&tlmm>;
 		interrupts = <9 IRQ_TYPE_LEVEL_LOW>;
-		
-		/* Reset GPIO */
+
 		reset-gpios = <&tlmm 8 GPIO_ACTIVE_LOW>;
-		
-		/* Power Configuration */
+
 		vdd-supply = <&vreg_l7c_3p0>;
 		vio-supply = <&vreg_l12a_1p8>;
 		
 		touchscreen-size-x = <1080>;
 		touchscreen-size-y = <2340>;
-		
-		/* Pin Control */
+
 		pinctrl-names = "default";
 		pinctrl-0 = <&ts_int_active &ts_reset_active>;
-		
-		/* Startup Delay */
+
 		syna,startup-delay-ms = <100>;
-		
-		/* RMI4 Function Descriptors */
+
 		#address-cells = <1>;
 		#size-cells = <0>;
-		
-		/* Function 01: RMI Device Control */
+
 		rmi4-f01@1 {
 			reg = <0x1>;
-			syna,nosleep-mode = <2>; /* 2 = enable nosleep (disabling sleep) */
+			syna,nosleep-mode = <2>;
 		};
 		
-		/* Function 12: 2D Touch Reporting */
 		rmi4-f12@12 {
 			reg = <0x12>;
-			syna,sensor-type = <1>; /* 1 = touchscreen */
+			syna,sensor-type = <1>;
 			
-			/* Clip coordinates */
-			syna,clip-x-high = <1079>; /* 1080-1 */
-			syna,clip-y-high = <2339>; /* 2340-1 */
+			syna,clip-x-high = <1079>;
+			syna,clip-y-high = <2339>;
 			
-			/* Touchscreen properties */
-		/*	touchscreen-size-x = <1080>;
-			touchscreen-size-y = <2340>;*/
 		};
-	};
-};
+         };
+};*/
 
-&i2c3 {
+/*&i2c3 {
 	clock-frequency = <100000>;
 	status = "okay";
 
@@ -654,7 +642,7 @@
 
 		#sound-dai-cells = <0>;
 	};
-};
+};/*
 
 &ipa {
 	memory-region = <&ipa_fw_mem>;
@@ -829,12 +817,12 @@
 
 &remoteproc_adsp {
 	firmware-name = "qcom/sm7150/oppo/pcnm00/adsp.mbn";
-	status = "disabled";
+	status = "okay";
 };
 
 &remoteproc_cdsp {
 	firmware-name = "qcom/sm7150/oppo/pcnm00/cdsp.mbn";
-	status = "disabled";
+	status = "okay";
 };
 
 &remoteproc_mpss {
@@ -851,7 +839,7 @@
 };
 
 &tlmm {
-	gpio-reserved-ranges = <59 4>;
+	/*gpio-reserved-ranges = <59 4>;*/
 	
 	mdp_vsync_p: mdp-vsync-p-state {
 		pins = "gpio10";
