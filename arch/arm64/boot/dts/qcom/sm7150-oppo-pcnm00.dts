@@ -42,6 +42,7 @@
 		#size-cells = <2>;
 		ranges;
 
+		bootargs = "console=ttyGS0,115200";
 		stdout-path = "serial0:115200n8";
 
 		framebuffer@9c000000 {
