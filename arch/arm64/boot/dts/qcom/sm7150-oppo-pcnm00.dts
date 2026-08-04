@@ -17,6 +17,11 @@
 #include "pm6150.dtsi"
 #include "pm6150l.dtsi"
 
+/delete-node/ &adsp_mem;
+/delete-node/ &camera_mem;
+/delete-node/ &mpss_mem;
+/delete-node/ &venus_mem;
+/delete-node/ &cdsp_mem;
 /delete-node/ &wlan_msa_mem;
 /delete-node/ &npu_mem;
 /delete-node/ &ipa_fw_mem;
@@ -47,7 +52,7 @@
 
 		framebuffer@9c000000 {
 			compatible = "simple-framebuffer";
-			reg = <0x0 0x9c000000 0x0 (1080 * 2340 * 4)>;
+			reg = <0x0 0x9c000000 0x0 0x1700000>;
 			width = <1080>;
 			height = <2340>;
 			stride = <(1080 * 4)>;
@@ -74,33 +79,64 @@
 	};
 
     reserved-memory {
-		wlan_msa_mem: wlan_msa@97d00000 {
-			reg = <0x0 0x97d00000 0x0 0x180000>;
+
+		tz_mem: trust-zone@86200000 {
+			reg = <0x0 0x86200000 0x0 0x6b00000>;
 			no-map;
 		};
 
-		npu_mem: npu@97e80000 {
-			reg = <0x0 0x97e80000 0x0 0x80000>;
+		camera_mem: camera@aab00000 {
+			reg = <0x0 0xaab00000 0x0 0x500000>;
 			no-map;
 		};
 
-		ipa_fw_mem: ipa_fw@97f00000 {
-			reg = <0x0 0x97f00000 0x0 0x10000>;
+		mpss_mem: mpss@ab000000 {
+			reg = <0x0 0xab000000 0x0 0x8e00000>;
 			no-map;
 		};
 
-		ipa_gsi_mem: ipa_gsi@97f10000 {
-			reg = <0x0 0x97f10000 0x0 0x5000>;
+		venus_mem: venus@b3e00000 {
+			reg = <0x0 0xb3e00000 0x0 0x500000>;
 			no-map;
 		};
 
-		gpu_mem: gpu@97f15000 {
-			reg = <0x0 0x97f15000 0x0 0x2000>;
+		cdsp_mem: cdsp@b6100000 {
+			reg = <0x0 0x9b6100000 0x0 0x1e00000>;
+			no-map;
+		};
+
+		adsp_mem: adsp@b6100000 {
+			reg = <0x0 0xb6100000 0x0 0x1e00000>;
+			no-map;
+		};
+
+		wlan_msa_mem: wlan_msa@b8100000 {
+			reg = <0x0 0xb8100000 0x0 0x180000>;
+			no-map;
+		};
+
+		npu_mem: npu@b8280000 {
+			reg = <0x0 0xb8280000 0x0 0x80000>;
+			no-map;
+		};
+
+		ipa_fw_mem: ipa_fw@b8300000 {
+			reg = <0x0 0xb8300000 0x0 0x10000>;
+			no-map;
+		};
+
+		ipa_gsi_mem: ipa_gsi@b8310000 {
+			reg = <0x0 0xb8310000 0x0 0x5000>;
+			no-map;
+		};
+
+		gpu_mem: gpu@b8315000 {
+			reg = <0x0 0xb8315000 0x0 0x2000>;
 			no-map;
 		};
 
 		cont_splash_mem: splash_region@9c000000 {
-			reg = <0x0 0x9c000000 0x0 (1080 * 2340 * 4)>;
+			reg = <0x0 0x9c000000 0x0 0x1700000>;
 			no-map;
 		};
 
@@ -124,6 +160,13 @@
 
 		ramdump_fb_mem: ramdump_fb_region@af000000 {
 			reg = <0x0 0xaf000000 0x0 0x1000000>;
+			no-map;
+		};
+
+		kboot_uboot_logmem: kboot_uboot_logmem@0xE8200000 {
+			reg = <0x0 0xE8200000 0x0 0x100000>;
+			compatible = "oppo,xbl_uefi_kbootlog";
+			xbluefi-offset = <0xF7000>;
 			no-map;
 		};
 	};
